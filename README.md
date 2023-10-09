@@ -21,6 +21,20 @@ This requires some thinking:
 - The first few lines contain variable descriptions. We do not want to read that into the data frame, but we might want to save the information alongside our data for reference.
 - There is an annoying separator line ("-----+----+----") between the column names and the data itself, which we don't usually see in data files. How do we deal with that?
 
+
+separator_pattern <- "-----+----+----"
+separator_line_number <- NULL
+
+for (i in 1:length(data_lines)) {
+  if (grepl(separator_pattern, data_lines[i])) {
+    separator_line_number <- i
+    break
+  }
+}
+
+
+cat("Separator line found at line number:", separator_line_number, "\n")
+
 Other than that, the data appears to be relatively clean.
 
 You can solve this problem in one of three ways depending on the level of your coding skills:
