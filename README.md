@@ -1,11 +1,12 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/ojZuXTA9)
 # :wave: Welcome to the first assignment in BAN400!
 This is the first assignment in BAN400. As you know -- given that you have come this far -- the assignments in BAN400 will be organized through Github and Github Classroom. By accepting this assignment, the repository will be copied to your Github user so that you can clone it to your own personal machine and work on it. Then, you simply commit your changes and push back to Github when you are done. You can commit and push as much as you want before the deadline. **Do not close the pull request for this repository, that is where the TAs will provide feedback for your work!**
 
-**Date:**
+**Date: 09.10.2023.**
 
-**Name:**
+**Name:Kamilla Anna Kovács**
 
-**Student number:**
+**Student number: s232830**
 
 ## :information_source: Problem 1
 Update the personal information above.
@@ -19,6 +20,20 @@ This requires some thinking:
 
 - The first few lines contain variable descriptions. We do not want to read that into the data frame, but we might want to save the information alongside our data for reference.
 - There is an annoying separator line ("-----+----+----") between the column names and the data itself, which we don't usually see in data files. How do we deal with that?
+
+
+separator_pattern <- "-----+----+----"
+separator_line_number <- NULL
+
+for (i in 1:length(data_lines)) {
+  if (grepl(separator_pattern, data_lines[i])) {
+    separator_line_number <- i
+    break
+  }
+}
+
+
+cat("Separator line found at line number:", separator_line_number, "\n")
 
 Other than that, the data appears to be relatively clean.
 
